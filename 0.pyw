@@ -175,4 +175,3 @@ bt6.config(command=f6)
 bt7.config(command=f7)
 
 root.mainloop()
-
