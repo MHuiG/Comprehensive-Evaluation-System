@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 #
+#A1.py 生成智育成绩导入模板
+#1.创建"Score"文件夹
+#2.输入科目
+#3.生成"学号_姓名智育成绩导入模板.xls"
+#
 import xlwt
 import os
 
