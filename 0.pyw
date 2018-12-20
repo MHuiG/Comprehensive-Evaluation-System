@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 #
+#0.pyw 综合测评系统用户界面
+#1.汇总所有函数
+#2.优化用户界面
 from tkinter import *
 import os
 import xlrd
