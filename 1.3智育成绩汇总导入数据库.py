@@ -6,7 +6,7 @@ import xlwt
 cn = sqlite3.connect('Score.db')
 cur = cn.cursor()
 
-path = "./成绩汇总.xls"
+path = "./智育成绩汇总.xls"
 data = xlrd.open_workbook(path) 
 table = data.sheets()[0]
 ncols = table.ncols
