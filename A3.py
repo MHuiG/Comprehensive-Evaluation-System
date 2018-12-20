@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 #
+#A3.py 智育成绩汇总导入数据库
+#1.创建数据库"Score.db"
+#2.创建数据表"Score"，设置主键"学号 char(20) PRIMARY KEY"
+#    数据表格式:学号 姓名 (科目)
+#3.将"智育成绩汇总.xls"导入数据库"Score.db"
+#
 import sqlite3
 import os
 import xlrd
