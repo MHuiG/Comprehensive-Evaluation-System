@@ -1,8 +1,21 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+#
 from tkinter import *
 import os
 import xlrd
 import xlwt
 import sqlite3
+import A1
+import A2
+import A3
+import A4
+import B1
+import B2
+import B3
+import B4
+import C1
+import D1
 
 def f1():
     try:
@@ -97,99 +110,16 @@ def f5():
     sc.pack_forget()
     bt5.pack_forget()
     text.pack_forget()
-    s=data.split('\n')
-    try:
-        os.makedirs("./Score")
-    except:
-        pass
-
-    workbook = xlwt.Workbook()
-    sheet1 = workbook.add_sheet('sheet1',cell_overwrite_ok=True)
-    sheet1.write(0,0,'学号')
-    sheet1.write(0,1,'姓名')
-    a=2
-    for i in range(len(s)):
-        sheet1.write(0,a,s[i])
-        a=a+1
-    workbook.save('./学号_姓名成绩导入模板.xls')
+    A1.A1(data)
     L2.pack()
 def f6():
     bt6.pack_forget()
-    path = "./Score"
-    files = os.listdir(path)
-    workbook = xlwt.Workbook()
-    sheet1 = workbook.add_sheet('sheet1',cell_overwrite_ok=True)
-    flag=0
-    x=0
-    y=0
-    for file in files:
-        f = os.path.basename(file)
-        data = xlrd.open_workbook(os.path.join(path,f))
-        table = data.sheets()[0]
-        if flag==0:
-            for i in table.row_values(0):
-                sheet1.write(x,y,i)
-                y+=1
-            flag=1
-            x+=1
-            y=0
-        for i in table.row_values(1):
-            sheet1.write(x,y,i)
-            y+=1
-        x+=1
-        y=0
-    workbook.save('./成绩汇总.xls')
+    A2.A2()
     L3.pack()
 
 def f7():
     bt7.pack_forget()
-    cn = sqlite3.connect('Score.db')
-    cur = cn.cursor()
-
-    path = "./成绩汇总.xls"
-    data = xlrd.open_workbook(path) 
-    table = data.sheets()[0]
-    ncols = table.ncols
-    nrows = table.nrows
-    s1="学号 char(20) PRIMARY KEY, 姓名 char(10), "
-    flag=0
-    for i in table.row_values(0):
-        if flag>=2:
-            s1=s1+i+' DOUBLE'
-            if flag!=ncols-1:
-                s1=s1+','
-        flag+=1
-        
-    try:
-        cn.execute('''CREATE TABLE IF NOT EXISTS Score('''+s1+''');''')
-    except:
-        pass
-    s2=''
-    flag=0
-    for i in table.row_values(0):
-        s2=s2+i
-        if flag!=ncols-1:
-            s2=s2+','
-        flag+=1
-
-    for i in range(nrows):
-        flag = 0
-        s3 = ''
-        if i!=0:
-            for k in table.row_values(i):
-                if flag==0:
-                    s3 = s3 + str(int(k))
-                elif flag==1:
-                    s3 = s3 + "'"+str(k)+ "'"
-                else:
-                    s3 = s3 + str(k)
-                if flag != ncols - 1:
-                    s3+=','
-                    flag += 1
-            cn.execute('''insert into  Score ('''+s2+''') values('''+s3+''')''')
-            cn.commit()
-    cur.close()
-    cn.close()
+    A3.A3()
     L4.pack()
     
 root=Tk()
@@ -245,3 +175,4 @@ bt6.config(command=f6)
 bt7.config(command=f7)
 
 root.mainloop()
+
