@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 #
+#A2.py 智育成绩汇总
+#1.遍历"Score"文件夹中的"xxx学号_xxx姓名智育成绩导入模板.xls"
+#2.生成"智育成绩汇总.xls"
+#3."智育成绩汇总.xls"格式 : 固定(学号 姓名) 用户指定(科目)
+#
 import os
 import xlrd
 import xlwt
