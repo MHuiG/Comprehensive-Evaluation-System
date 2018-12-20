@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 #
+#B2.py 综测成绩汇总
+#1.遍历ZScore文件夹中的"xxxx学号_xxxx姓名综测成绩导入模板.docx"
+#2.生成"综测成绩汇总.xls"
+#   格式:学号 姓名 思想品德素质得分明细 思想品德得分（10%） 身心素质得分明细 身心素质得分（5%） 创新实践能力得分明细 创新实践能力得分（10%） 学院特色得分明细 学院特色得分（5%）
+#
 from docx import *
 import os
 import xlwt
