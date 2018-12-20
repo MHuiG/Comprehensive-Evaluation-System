@@ -25,4 +25,4 @@ for file in files:
         y+=1
     x+=1
     y=0
-workbook.save('./成绩汇总.xls')
+workbook.save('./智育成绩汇总.xls')
