@@ -1,6 +1,6 @@
 # 综合测评系统
 # Comprehensive Evaluation System
-
+#运行该项目首先需要pip安装 docx xlwt xlrd
 
 <b>0.pyw 综合测评系统用户界面</b>
 
