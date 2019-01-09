@@ -37,7 +37,6 @@ if __name__=="__main__":
 
     try:
         print('''CREATE TABLE IF NOT EXISTS ZScore(''' + s1 + ''');''')
-        cn.execute('''CREATE TABLE IF NOT EXISTS ZScore(''' + s1 + ''');''')
     except:
         pass
     s2 = ''
@@ -70,8 +69,6 @@ if __name__=="__main__":
                 if flag != ncols - 1:
                     s3 += ','
                     flag += 1
-                    # print(flag)
-            print('''insert into  ZScore (''' + s2 + ''') values(''' + s3 + ''')''')
             cn.execute('''insert into  ZScore (''' + s2 + ''') values(''' + s3 + ''')''')
             cn.commit()
     cur.close()
