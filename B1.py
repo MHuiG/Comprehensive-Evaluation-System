@@ -18,18 +18,18 @@ if __name__=="__main__":
         pass
 
     document = Document()
-    table = document.add_table(10, 2 ,style="Table Grid")
+    table = document.add_table(11, 2 , style="Table Grid")
 
     table.cell(0,0).text = '学号'
     table.cell(1,0).text = '姓名'
     table.cell(2,0).text = '思想品德素质得分明细'
-    table.cell(3,0).text = '思想品德得分（0.1）'
+    table.cell(3,0).text = '思想品德得分'
     table.cell(4,0).text = '身心素质得分明细'
-    table.cell(5,0).text = '身心素质得分（0.05）'
+    table.cell(5,0).text = '身心素质得分'
     table.cell(6,0).text = '创新实践能力得分明细'
-    table.cell(7,0).text = '创新实践能力得分（0.1）'
+    table.cell(7,0).text = '创新实践能力得分'
     table.cell(8,0).text = '学院特色得分明细'
-    table.cell(9,0).text = '学院特色得分（0.05）'
-
+    table.cell(9,0).text = '学院特色得分'
+    table.cell(10, 0).text = '智育成绩'
 
     document.save("./学号_姓名综测成绩导入模板.docx")
