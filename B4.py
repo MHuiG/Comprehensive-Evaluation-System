@@ -16,4 +16,23 @@ import xlwt
 def B4():
     pass
 if __name__=="__main__":
-    pass
+    cn = sqlite3.connect('Score.db')
+    cur = cn.execute('select * from Score')
+    i = 0
+    try:
+        cn.execute('''alter table Score add COLUMN '综测成绩' DOUBLE''')
+    except:
+        print('Table has Exist')
+
+    while True:
+        x=cur.fetchone()
+        if not x:break
+        k=(x[10]*0.7)+(x[3]*0.1)+(x[5]*0.05)+(x[7]*0.1)+(x[9]*0.05)
+        s="""update Score set '综测成绩'="""+str(k)+""" where 学号 = '"""+str(x[0])+"""'"""
+        print(s)
+        cn.execute(s)
+        cn.commit()
+
+    cur.close()
+    cn.close()
+
