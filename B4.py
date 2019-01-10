@@ -16,32 +16,52 @@ import xlwt
 def B4():
     pass
 def order():
+    workbook = xlwt.Workbook()
+    sheet1 = workbook.add_sheet('sheet1',cell_overwrite_ok=True)
+
+    style = xlwt.easyxf('align: wrap on,horz center,vert center')
+    sheet1.col(0).width = 3300
+    sheet1.col(2).width = 6000
+    sheet1.col(4).width = 6000
+    sheet1.col(6).width = 6000
+    sheet1.col(8).width = 6000
+
     cn = sqlite3.connect('Score.db')
     cur = cn.cursor()
     s="""select * from ZScore order by "综测成绩" desc"""
     cursor=cn.execute(s)
     col_name_list = [tuple[0] for tuple in cursor.description]
-    print (col_name_list)
-
+    #print (col_name_list)
+    for i in range(len(col_name_list)):
+        sheet1.write(0,i,col_name_list[i],style)
+        #print(col_name_list[i])
+    a=1
     for row in cursor:
-        print(row)
+        #print(row)
+        for i in range(len(row)):
+            sheet1.write(a,i,row[i],style)
+            #print(row[i])
+        a=a+1   
+    workbook.save('./综测成绩.xls')
     cur.close()
     cn.close()
 if __name__=="__main__":
+    
     cn = sqlite3.connect('Score.db')
     cur = cn.execute('select * from ZScore')
     i = 0
     try:
         cn.execute('''alter table ZScore add COLUMN '综测成绩' DOUBLE''')
     except:
-        print('Table has Exist')
+        #print('Table has Exist')
+        pass
 
     while True:
         x=cur.fetchone()
         if not x:break
         k=(x[10]*0.7)+(x[3]*0.1)+(x[5]*0.05)+(x[7]*0.1)+(x[9]*0.05)
         s="""update ZScore set '综测成绩'="""+str(k)+""" where 学号 = '"""+str(x[0])+"""'"""
-        print(s)
+        #print(s)
         cn.execute(s)
         cn.commit()
     order()
