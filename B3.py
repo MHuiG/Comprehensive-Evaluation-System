@@ -35,7 +35,6 @@ if __name__=="__main__":
                 s1 = s1 + ','
         flag += 1
     try:
-        print('''CREATE TABLE IF NOT EXISTS Score(''' + s1 + ''');''')
         cn.execute('''CREATE TABLE IF NOT EXISTS Score(''' + s1 + ''');''')
     except:
         pass
@@ -69,7 +68,6 @@ if __name__=="__main__":
                 if flag != ncols - 1:
                     s3 += ','
                     flag += 1
-            print('''insert into  Score (''' + s2 + ''') values(''' + s3 + ''')''')
             cn.execute('''insert into  Score (''' + s2 + ''') values(''' + s3 + ''')''')
             cn.commit()
     cur.close()
