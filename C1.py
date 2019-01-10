@@ -63,7 +63,12 @@ def update(xh,a,b):
     cursor=cn.execute(s)
     cn.commit()
     select_all()
-
+def sql(s):
+    cn = sqlite3.connect('Score.db')
+    cur = cn.cursor()
+    cursor=cn.execute(s)
+    cn.commit()
+    select_all()
 if __name__=="__main__":
     pass
     #select_all()
@@ -72,9 +77,11 @@ if __name__=="__main__":
     #insert(L)
     
     
-    #update('171214080267344','111','0')
+    #update('171214080267344','1','0')
 
     #select_by_xh('171214080267344')
     
     
     #delete_by_xh(171214080267344)
+
+    #sql("""delete from Score where 学号= '1712140802673s'""")
