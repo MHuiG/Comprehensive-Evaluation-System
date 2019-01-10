@@ -15,6 +15,18 @@ import xlwt
 
 def B4():
     pass
+def order():
+    cn = sqlite3.connect('Score.db')
+    cur = cn.cursor()
+    s="""select * from Score order by "综测成绩" desc"""
+    cursor=cn.execute(s)
+    col_name_list = [tuple[0] for tuple in cursor.description]
+    print (col_name_list)
+
+    for row in cursor:
+        print(row)
+    cur.close()
+    cn.close()
 if __name__=="__main__":
     cn = sqlite3.connect('Score.db')
     cur = cn.execute('select * from Score')
@@ -32,6 +44,7 @@ if __name__=="__main__":
         print(s)
         cn.execute(s)
         cn.commit()
+    order()
 
     cur.close()
     cn.close()
