@@ -13,8 +13,7 @@ import os
 import xlrd
 import xlwt
 
-def B4():
-    pass
+
 def order():
     workbook = xlwt.Workbook()
     sheet1 = workbook.add_sheet('sheet1',cell_overwrite_ok=True)
@@ -45,8 +44,7 @@ def order():
     workbook.save('./综测成绩.xls')
     cur.close()
     cn.close()
-if __name__=="__main__":
-    
+def B4():
     cn = sqlite3.connect('Score.db')
     cur = cn.execute('select * from ZScore')
     i = 0
@@ -69,3 +67,6 @@ if __name__=="__main__":
     cur.close()
     cn.close()
 
+
+if __name__=="__main__":
+    B4()
