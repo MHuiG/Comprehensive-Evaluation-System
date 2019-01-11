@@ -10,8 +10,6 @@ from docx import *
 import os
 
 def B1():
-    pass
-if __name__=="__main__":
     try:
         os.makedirs("./ZScore")
     except:
@@ -33,3 +31,6 @@ if __name__=="__main__":
     table.cell(10, 0).text = '智育成绩'
 
     document.save("./学号_姓名综测成绩导入模板.docx")
+
+if __name__=="__main__":
+    B1()
