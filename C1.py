@@ -9,7 +9,7 @@ import os
 import xlrd
 import xlwt
 
-def select_all():
+def Score_select_all():
     cn = sqlite3.connect('Score.db')
     cur = cn.cursor()
     s="""select * from Score"""
@@ -20,7 +20,7 @@ def select_all():
         print(row)
     cur.close()
     cn.close()
-def select_by_xh(xh):
+def Score_select_by_xh(xh):
     cn = sqlite3.connect('Score.db')
     cur = cn.cursor()
     s="""select * from Score where 学号= '"""+str(xh)+"""'"""
@@ -32,7 +32,7 @@ def select_by_xh(xh):
     cur.close()
     cn.close()
 
-def insert(L):
+def Score_insert(L):
     s=""
     z=0
     for i in L:
@@ -46,29 +46,92 @@ def insert(L):
     s="""insert into Score values("""+s+""")"""
     cursor=cn.execute(s)
     cn.commit()
-    select_all()
-def delete_by_xh(xh):
+    Score_select_all()
+def Score_delete_by_xh(xh):
     cn = sqlite3.connect('Score.db')
     cur = cn.cursor()
     s="""delete from Score where 学号= '"""+str(xh)+"""'"""
     cursor=cn.execute(s)
     cn.commit()
-    select_all()
-def update(xh,a,b):
+    Score_select_all()
+def Score_update(xh,a,b):
     cn = sqlite3.connect('Score.db')
     cur = cn.cursor()
     s="""update Score set """+str(a)+""" = '"""+str(b)+"""' where 学号= '"""+str(xh)+"""'"""
     cursor=cn.execute(s)
     cn.commit()
-    select_all()
-def sql(s):
+    Score_select_all()
+def Score_sql(s):
     cn = sqlite3.connect('Score.db')
     cur = cn.cursor()
     cursor=cn.execute(s)
     cn.commit()
-    select_all()
+    Score_select_all()
+
+
+
+
+def ZScore_select_all():
+    cn = sqlite3.connect('Score.db')
+    cur = cn.cursor()
+    s="""select * from ZScore"""
+    cursor=cn.execute(s)
+    col_name_list = [tuple[0] for tuple in cursor.description]
+    print (col_name_list)
+    for row in cursor:
+        print(row)
+    cur.close()
+    cn.close()
+def ZScore_select_by_xh(xh):
+    cn = sqlite3.connect('Score.db')
+    cur = cn.cursor()
+    s="""select * from ZScore where 学号= '"""+str(xh)+"""'"""
+    cursor=cn.execute(s)
+    col_name_list = [tuple[0] for tuple in cursor.description]
+    print (col_name_list)
+    for row in cursor:
+        print(row)
+    cur.close()
+    cn.close()
+
+def ZScore_insert(L):
+    s=""
+    z=0
+    for i in L:
+        if z==0:
+            s+="'"+str(i)+"'"
+        else:
+            s+=",'"+str(i)+"'"
+        z=z+1
+    cn = sqlite3.connect('Score.db')
+    cur = cn.cursor()
+    s="""insert into ZScore values("""+s+""")"""
+    cursor=cn.execute(s)
+    cn.commit()
+    ZScore_select_all()
+def ZScore_delete_by_xh(xh):
+    cn = sqlite3.connect('Score.db')
+    cur = cn.cursor()
+    s="""delete from ZScore where 学号= '"""+str(xh)+"""'"""
+    cursor=cn.execute(s)
+    cn.commit()
+    ZScore_select_all()
+def ZScore_update(xh,a,b):
+    cn = sqlite3.connect('Score.db')
+    cur = cn.cursor()
+    s="""update ZScore set """+str(a)+""" = '"""+str(b)+"""' where 学号= '"""+str(xh)+"""'"""
+    cursor=cn.execute(s)
+    cn.commit()
+    ZScore_select_all()
+def ZScore_sql(s):
+    cn = sqlite3.connect('Score.db')
+    cur = cn.cursor()
+    cursor=cn.execute(s)
+    cn.commit()
+    ZScore_select_all()
+
 if __name__=="__main__":
-    print()
+    pass
     #select_all()
         
     #L=['171214080267344','0', 73.0, 82.8, 87.7, 79.7, 65.8, 63.6, 76.0, 83.7, 86.0, 92.0, 81.5, 86.0]
