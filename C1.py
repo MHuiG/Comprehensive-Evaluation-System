@@ -9,8 +9,6 @@ import os
 import xlrd
 import xlwt
 
-def C1():
-    pass
 def select_all():
     cn = sqlite3.connect('Score.db')
     cur = cn.cursor()
@@ -70,7 +68,7 @@ def sql(s):
     cn.commit()
     select_all()
 if __name__=="__main__":
-    pass
+    print()
     #select_all()
         
     #L=['171214080267344','0', 73.0, 82.8, 87.7, 79.7, 65.8, 63.6, 76.0, 83.7, 86.0, 92.0, 81.5, 86.0]
