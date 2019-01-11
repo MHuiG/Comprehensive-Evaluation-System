@@ -13,8 +13,7 @@ import os
 import xlrd
 import xlwt
 
-def A4():
-    pass
+
 def order():
     workbook = xlwt.Workbook()
     sheet1 = workbook.add_sheet('sheet1',cell_overwrite_ok=True)
@@ -40,7 +39,7 @@ def order():
     workbook.save('./智育成绩.xls')
     cur.close()
     cn.close()
-if __name__=="__main__":
+def A4():
     cn = sqlite3.connect('Score.db')
     cur = cn.cursor()
     s="""select * from Credits limit 1"""
@@ -73,3 +72,6 @@ if __name__=="__main__":
 
     cur.close()
     cn.close()
+
+if __name__=="__main__":
+    A4()
