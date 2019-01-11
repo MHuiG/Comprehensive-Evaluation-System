@@ -41,6 +41,10 @@ def PackForget():
     except:
         pass
     try:
+        fr115.pack_forget()
+    except:
+        pass
+    try:
         fr20.pack_forget()
     except:
         pass
@@ -60,7 +64,10 @@ def PackForget():
         fr24.pack_forget()
     except:
         pass
-    
+    try:
+        fr225.pack_forget()
+    except:
+        pass
 ##########主工具栏
     
 def f01():
@@ -120,6 +127,11 @@ def f14():
     fr14.pack(fill=X)
     bt18.pack(anchor=SE)
 
+def f115():
+    PackForget()
+    fr115.pack(fill=X)
+    bt1155.pack(anchor=SE)
+
 ######生成智育成绩导入模板
     
 def f15():
@@ -152,6 +164,17 @@ def f18():
     A4.A4()
     L15.pack()
 
+######智育成绩数据库操作
+
+def f1155(): 
+    data=text2211.get('1.0',END)
+    L1201.pack_forget()
+    sc12.pack_forget()
+    bt1155.pack_forget()
+    text1111.pack_forget()
+    C1.Score_sql(data)
+    L1155.pack()
+    
 ##########综测成绩
 
 ######综测成绩工具栏
@@ -193,6 +216,11 @@ def f24():
     PackForget()
     fr24.pack(fill=X)
     bt28.pack(anchor=SE)
+
+def f225():
+    PackForget()
+    fr225.pack(fill=X)
+    bt2255.pack(anchor=SE)
     
 ######导入学分
 
@@ -235,7 +263,17 @@ def f28():
     bt28.pack_forget()
     B4.B4()
     L25.pack()
-    
+
+######综测成绩数据库操作
+
+def f2255(): 
+    data=text2211.get('1.0',END)
+    L2201.pack_forget()
+    sc22.pack_forget()
+    bt2255.pack_forget()
+    text2211.pack_forget()
+    C1.ZScore_sql(data)
+    L2255.pack()
     
 ################################################################################
     
@@ -269,6 +307,8 @@ bt13=Button(frame1,text='智育成绩汇总导入数据库')
 bt13.grid(row=1,column=3)
 bt14=Button(frame1,text='导出"智育成绩.xls"')
 bt14.grid(row=1,column=4)
+bt115=Button(frame1,text='智育成绩数据库操作')
+bt115.grid(row=1,column=5)
 
 #按钮
 
@@ -276,6 +316,7 @@ bt11.config(command=f11)
 bt12.config(command=f12)
 bt13.config(command=f13)
 bt14.config(command=f14)
+bt115.config(command=f115)
 
 ######生成智育成绩导入模板
 
@@ -319,7 +360,7 @@ L14 = Label(fr13,text='智育成绩汇总导入数据库成功')
 
 bt17.config(command=f17)
 
-######导出"智育成绩.xls"f18
+######导出"智育成绩.xls"
 
 fr14=LabelFrame(relief=GROOVE,text='导出"智育成绩.xls"：')
 bt18=Button(fr14,text='下一步')
@@ -329,6 +370,25 @@ L15 = Label(fr14,text='导出"智育成绩.xls"成功')
 #按钮
 
 bt18.config(command=f18)
+
+######智育成绩数据库操作
+
+fr115=LabelFrame(relief=GROOVE,text='智育成绩数据库操作：')
+L1201 = Label(fr115,text='输入SQL语句')
+L1201.pack(anchor=NW)
+sc12=Scrollbar(fr115)
+sc12.pack(side=RIGHT,fill=Y)
+text1111=Text(fr115)
+text1111.config(yscrollcommand=sc12.set)
+text1111.pack(expand=YES,fill=X)
+sc12.config(command=text1111.yview)
+bt1155=Button(fr115,text='下一步')
+bt1155.pack(anchor=SE)
+text1111.focus()
+L1155= Label(fr115,text='SQL语句操作成功')
+
+#按钮
+bt1155.config(command=f1155)
 
 ##############################综测成绩##################################
 
@@ -345,6 +405,8 @@ bt23=Button(frame2,text='综测成绩汇总导入数据库')
 bt23.grid(row=1,column=4)
 bt24=Button(frame2,text='导出"综测成绩.xls"')
 bt24.grid(row=1,column=5)
+bt225=Button(frame2,text='综测成绩数据库操作')
+bt225.grid(row=1,column=6)
 
 #按钮
 
@@ -353,6 +415,7 @@ bt21.config(command=f21)
 bt22.config(command=f22)
 bt23.config(command=f23)
 bt24.config(command=f24)
+bt225.config(command=f225)
 
 ######导入学分
 
@@ -362,7 +425,7 @@ L201.pack(anchor=NW)
 sc2=Scrollbar(fr20)
 sc2.pack(side=RIGHT,fill=Y)
 text211=Text(fr20)
-text211.config(yscrollcommand=sc.set)
+text211.config(yscrollcommand=sc2.set)
 text211.pack(expand=YES,fill=X)
 sc2.config(command=text211.yview)
 bt201=Button(fr20,text='下一步')
@@ -416,5 +479,24 @@ L25 = Label(fr24,text='导出"综测成绩.xls"成功')
 
 #按钮
 bt28.config(command=f28)
+
+######综测成绩数据库操作
+
+fr225=LabelFrame(relief=GROOVE,text='综测成绩数据库操作：')
+L2201 = Label(fr225,text='输入SQL语句')
+L2201.pack(anchor=NW)
+sc22=Scrollbar(fr225)
+sc22.pack(side=RIGHT,fill=Y)
+text2211=Text(fr225)
+text2211.config(yscrollcommand=sc22.set)
+text2211.pack(expand=YES,fill=X)
+sc22.config(command=text2211.yview)
+bt2255=Button(fr225,text='下一步')
+bt2255.pack(anchor=SE)
+text2211.focus()
+L2255= Label(fr225,text='SQL语句操作成功')
+
+#按钮
+bt2255.config(command=f2255)
 
 root.mainloop()
