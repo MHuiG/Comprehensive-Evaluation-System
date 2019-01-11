@@ -11,8 +11,6 @@ import os
 import xlwt
 
 def B2():
-    pass
-if __name__=="__main__":
     path = "./ZScore"
     files = os.listdir(path)
     workbook = xlwt.Workbook()
@@ -50,3 +48,6 @@ if __name__=="__main__":
             pass
         
     workbook.save('./综测成绩汇总.xls')
+
+if __name__=="__main__":
+    B2()
