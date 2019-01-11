@@ -11,7 +11,7 @@ import sqlite3
 import os
 import xlrd
 import xlwt
-if __name__=="__main__":
+def B3():
     cn = sqlite3.connect('Score.db')
     cur = cn.cursor()
 
@@ -72,4 +72,6 @@ if __name__=="__main__":
             cn.commit()
     cur.close()
     cn.close()
+if __name__=="__main__":
+    B3()
 
