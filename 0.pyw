@@ -127,11 +127,65 @@ def f14():
     fr14.pack(fill=X)
     bt18.pack(anchor=SE)
 
+
+def forg1():
+    L1101.pack_forget()
+    L1102.pack_forget()
+    L1103.pack_forget()
+    L1104.pack_forget()
+    sc12.pack_forget()
+    bt1155.pack_forget()
+    bt1156.pack_forget()
+    bt1157.pack_forget()
+    bt1158.pack_forget()
+    bt1159.pack_forget()
+    text1111.pack_forget()
 def f115():
     PackForget()
+    forg1()
     fr115.pack(fill=X)
+    L1155.pack_forget()
+    L1101.pack(anchor=NW)
+    sc12.pack(side=RIGHT,fill=Y)
+    text1111.pack(expand=YES,fill=X)
     bt1155.pack(anchor=SE)
 
+def f116():
+    PackForget()
+    forg1()
+    fr115.pack(fill=X)
+    L1155.pack_forget()
+    L1102.pack(anchor=NW)
+    sc12.pack(side=RIGHT,fill=Y)
+    text1111.pack(expand=YES,fill=X)
+    bt1156.pack(anchor=SE)
+def f117():
+    PackForget()
+    forg1()
+    fr115.pack(fill=X)
+    L1155.pack_forget()
+    L1102.pack(anchor=NW)
+    sc12.pack(side=RIGHT,fill=Y)
+    text1111.pack(expand=YES,fill=X)
+    bt1157.pack(anchor=SE)
+def f118():
+    PackForget()
+    forg1()
+    fr115.pack(fill=X)
+    L1155.pack_forget()
+    L1103.pack(anchor=NW)
+    sc12.pack(side=RIGHT,fill=Y)
+    text1111.pack(expand=YES,fill=X)
+    bt1158.pack(anchor=SE)
+def f119():
+    PackForget()
+    forg1()
+    fr115.pack(fill=X)
+    L1155.pack_forget()
+    L1104.pack(anchor=NW)
+    sc12.pack(side=RIGHT,fill=Y)
+    text1111.pack(expand=YES,fill=X)
+    bt1159.pack(anchor=SE)
 ######生成智育成绩导入模板
     
 def f15():
@@ -166,13 +220,35 @@ def f18():
 
 ######智育成绩数据库操作
 
+##SQL语句
 def f1155(): 
-    data=text2211.get('1.0',END)
-    L1201.pack_forget()
-    sc12.pack_forget()
-    bt1155.pack_forget()
-    text1111.pack_forget()
+    data=text1111.get('1.0',END)
+    forg()
     C1.Score_sql(data)
+    L1155.pack()
+##查询
+def f1156(): 
+    data=text1111.get('1.0',END)
+    forg()
+    C1.Score_select_by_xh(data)
+    L1155.pack()
+##删除
+def f1157(): 
+    data=text1111.get('1.0',END)
+    forg()
+    C1.Score_delete_by_xh(data)
+    L1155.pack()
+##更改
+def f1158(): 
+    data=text1111.get('1.0',END)
+    forg()
+    C1.Score_update(data)
+    L1155.pack()
+##插入
+def f1159(): 
+    data=text1111.get('1.0',END)
+    forg()
+    C1.Score_insert(data)
     L1155.pack()
     
 ##########综测成绩
@@ -216,12 +292,64 @@ def f24():
     PackForget()
     fr24.pack(fill=X)
     bt28.pack(anchor=SE)
-
+def forg():
+    L2201.pack_forget()
+    L2202.pack_forget()
+    L2203.pack_forget()
+    L2204.pack_forget()
+    sc22.pack_forget()
+    bt2255.pack_forget()
+    bt2256.pack_forget()
+    bt2257.pack_forget()
+    bt2258.pack_forget()
+    bt2259.pack_forget()
+    text2211.pack_forget()
 def f225():
     PackForget()
+    forg()
     fr225.pack(fill=X)
+    L2255.pack_forget()
+    L2201.pack(anchor=NW)
+    sc22.pack(side=RIGHT,fill=Y)
+    text2211.pack(expand=YES,fill=X)
     bt2255.pack(anchor=SE)
-    
+
+def f226():
+    PackForget()
+    forg()
+    fr225.pack(fill=X)
+    L2255.pack_forget()
+    L2202.pack(anchor=NW)
+    sc22.pack(side=RIGHT,fill=Y)
+    text2211.pack(expand=YES,fill=X)
+    bt2256.pack(anchor=SE)
+def f227():
+    PackForget()
+    forg()
+    fr225.pack(fill=X)
+    L2255.pack_forget()
+    L2202.pack(anchor=NW)
+    sc22.pack(side=RIGHT,fill=Y)
+    text2211.pack(expand=YES,fill=X)
+    bt2257.pack(anchor=SE)
+def f228():
+    PackForget()
+    forg()
+    fr225.pack(fill=X)
+    L2255.pack_forget()
+    L2203.pack(anchor=NW)
+    sc22.pack(side=RIGHT,fill=Y)
+    text2211.pack(expand=YES,fill=X)
+    bt2258.pack(anchor=SE)
+def f229():
+    PackForget()
+    forg()
+    fr225.pack(fill=X)
+    L2255.pack_forget()
+    L2204.pack(anchor=NW)
+    sc22.pack(side=RIGHT,fill=Y)
+    text2211.pack(expand=YES,fill=X)
+    bt2259.pack(anchor=SE)
 ######导入学分
 
 def f201():
@@ -259,26 +387,46 @@ def f27():
 ######导出"综测成绩.xls"
 
 def f28():
-    
     bt28.pack_forget()
     B4.B4()
     L25.pack()
 
 ######综测成绩数据库操作
 
+##SQL语句
 def f2255(): 
     data=text2211.get('1.0',END)
-    L2201.pack_forget()
-    sc22.pack_forget()
-    bt2255.pack_forget()
-    text2211.pack_forget()
+    forg()
     C1.ZScore_sql(data)
     L2255.pack()
-    
+##查询
+def f2256(): 
+    data=text2211.get('1.0',END)
+    forg()
+    C1.ZScore_select_by_xh(data)
+    L2255.pack()
+##删除
+def f2257(): 
+    data=text2211.get('1.0',END)
+    forg()
+    C1.ZScore_delete_by_xh(data)
+    L2255.pack()
+##更改
+def f2258(): 
+    data=text2211.get('1.0',END)
+    forg()
+    C1.ZScore_update(data)
+    L2255.pack()
+##插入
+def f2259(): 
+    data=text2211.get('1.0',END)
+    forg()
+    C1.ZScore_insert(data)
+    L2255.pack()
 ################################################################################
     
 root=Tk()
-root.geometry("700x500")
+root.geometry("1000x500")
 
 ##############################主工具栏###############################
 
@@ -307,8 +455,16 @@ bt13=Button(frame1,text='智育成绩汇总导入数据库')
 bt13.grid(row=1,column=3)
 bt14=Button(frame1,text='导出"智育成绩.xls"')
 bt14.grid(row=1,column=4)
-bt115=Button(frame1,text='智育成绩数据库操作')
+bt115=Button(frame1,text='SQL语句')
 bt115.grid(row=1,column=5)
+bt116=Button(frame1,text='查询')
+bt116.grid(row=1,column=6)
+bt117=Button(frame1,text='删除')
+bt117.grid(row=1,column=7)
+bt118=Button(frame1,text='更改')
+bt118.grid(row=1,column=8)
+bt119=Button(frame1,text='增加')
+bt119.grid(row=1,column=9)
 
 #按钮
 
@@ -317,6 +473,10 @@ bt12.config(command=f12)
 bt13.config(command=f13)
 bt14.config(command=f14)
 bt115.config(command=f115)
+bt116.config(command=f116)
+bt117.config(command=f117)
+bt118.config(command=f118)
+bt119.config(command=f119)
 
 ######生成智育成绩导入模板
 
@@ -374,22 +534,29 @@ bt18.config(command=f18)
 ######智育成绩数据库操作
 
 fr115=LabelFrame(relief=GROOVE,text='智育成绩数据库操作：')
-L1201 = Label(fr115,text='输入SQL语句')
-L1201.pack(anchor=NW)
+L1101 = Label(fr115,text='输入SQL语句')
+L1102 = Label(fr115,text='输入学号')
+L1103 = Label(fr115,text='输入学号 属性 更改信息(空格分割)')
+L1104 = Label(fr115,text='输入插入信息(空格分割)')
 sc12=Scrollbar(fr115)
-sc12.pack(side=RIGHT,fill=Y)
 text1111=Text(fr115)
 text1111.config(yscrollcommand=sc12.set)
-text1111.pack(expand=YES,fill=X)
 sc12.config(command=text1111.yview)
 bt1155=Button(fr115,text='下一步')
-bt1155.pack(anchor=SE)
+bt1156=Button(fr115,text='下一步')
+bt1157=Button(fr115,text='下一步')
+bt1158=Button(fr115,text='下一步')
+bt1159=Button(fr115,text='下一步')
 text1111.focus()
-L1155= Label(fr115,text='SQL语句操作成功')
+L1155= Label(fr115,text='操作成功')
 
 #按钮
-bt1155.config(command=f1155)
 
+bt1155.config(command=f1155)
+bt1156.config(command=f1156)
+bt1157.config(command=f1157)
+bt1158.config(command=f1158)
+bt1159.config(command=f1159)
 ##############################综测成绩##################################
 
 ######综测成绩工具栏
@@ -405,9 +572,16 @@ bt23=Button(frame2,text='综测成绩汇总导入数据库')
 bt23.grid(row=1,column=4)
 bt24=Button(frame2,text='导出"综测成绩.xls"')
 bt24.grid(row=1,column=5)
-bt225=Button(frame2,text='综测成绩数据库操作')
+bt225=Button(frame2,text='SQL语句')
 bt225.grid(row=1,column=6)
-
+bt226=Button(frame2,text='查询')
+bt226.grid(row=1,column=7)
+bt227=Button(frame2,text='删除')
+bt227.grid(row=1,column=8)
+bt228=Button(frame2,text='更改')
+bt228.grid(row=1,column=9)
+bt229=Button(frame2,text='增加')
+bt229.grid(row=1,column=10)
 #按钮
 
 bt20.config(command=f20)
@@ -416,7 +590,10 @@ bt22.config(command=f22)
 bt23.config(command=f23)
 bt24.config(command=f24)
 bt225.config(command=f225)
-
+bt226.config(command=f226)
+bt227.config(command=f227)
+bt228.config(command=f228)
+bt229.config(command=f229)
 ######导入学分
 
 fr20=LabelFrame(relief=GROOVE,text='导入学分：')
@@ -482,21 +659,30 @@ bt28.config(command=f28)
 
 ######综测成绩数据库操作
 
+
 fr225=LabelFrame(relief=GROOVE,text='综测成绩数据库操作：')
 L2201 = Label(fr225,text='输入SQL语句')
-L2201.pack(anchor=NW)
+L2202 = Label(fr225,text='输入学号')
+L2203 = Label(fr225,text='输入学号 属性 更改信息(空格分割)')
+L2204 = Label(fr225,text='输入插入信息(空格分割)')
 sc22=Scrollbar(fr225)
-sc22.pack(side=RIGHT,fill=Y)
 text2211=Text(fr225)
 text2211.config(yscrollcommand=sc22.set)
-text2211.pack(expand=YES,fill=X)
 sc22.config(command=text2211.yview)
 bt2255=Button(fr225,text='下一步')
-bt2255.pack(anchor=SE)
+bt2256=Button(fr225,text='下一步')
+bt2257=Button(fr225,text='下一步')
+bt2258=Button(fr225,text='下一步')
+bt2259=Button(fr225,text='下一步')
 text2211.focus()
-L2255= Label(fr225,text='SQL语句操作成功')
+L2255= Label(fr225,text='操作成功')
 
 #按钮
+
 bt2255.config(command=f2255)
+bt2256.config(command=f2256)
+bt2257.config(command=f2257)
+bt2258.config(command=f2258)
+bt2259.config(command=f2259)
 
 root.mainloop()
