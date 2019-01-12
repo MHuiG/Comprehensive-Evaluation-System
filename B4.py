@@ -52,7 +52,20 @@ def B4():
         cn.execute('''alter table ZScore add COLUMN '综测成绩' DOUBLE''')
     except:
         print('Table has Exist')
-
+    #导入智育成绩开始
+    while True:
+        x = cur.fetchone()
+        if not x: break
+        t=x[0]
+        print(t)
+        cu=cn.cursor()
+        cu.execute("""select 智育成绩 from Score where 学号='"""+t+"""'""")
+        values = cu.fetchall()
+        print(values[0][0],'***********')
+        s = """update ZScore set '智育成绩'=""" + str(values[0][0]) + """ where 学号 = '""" + str(x[0]) + """'"""
+        cn.execute(s)
+        cn.commit()
+    #导入完毕
 
     while True:
         x=cur.fetchone()
